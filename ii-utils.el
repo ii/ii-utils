@@ -8,7 +8,7 @@
 ;; Modified: May 19, 2021
 ;; Version: 1
 ;; Keywords: productivity, convenience, helpers
-;; Homepage: https://github.com/ii/ii-utils.el
+;; Homepage: https://github.com/ii/ii-utils
 ;; Package-Requires: ((emacs "24.3"))
 ;;
 ;; This file is not part of GNU Emacs.
