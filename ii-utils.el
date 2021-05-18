@@ -2,7 +2,7 @@
 ;;
 ;; Copyright (C) 2021 Zach Mandeville ii
 ;;
-;; Author: Zach Mandeville <https://github.com/workzach>
+;; Author: Zach Mandeville <https://github.com/zachmandeville>
 ;; Maintainer: Zach Mandeville <zz@ii.coop>
 ;; Created: May 19, 2021
 ;; Modified: May 19, 2021
