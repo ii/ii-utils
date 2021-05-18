@@ -30,8 +30,7 @@
 ;; SSH Tools
 ;;;;
 (defun ii/ssh-find-agent ()
-"Look for a running SSH agent on the host machine, and set it as our
-SSH_AUTH_SOCK.
+"Look for a running SSH agent on host machine, and set it as SSH_AUTH_SOCK.
 
 This is useful for pushing changes to git repos using your ssh
 key, or for tramping in an org file to a remote machine. It assumes you've added
@@ -49,14 +48,14 @@ This function is INTERACTIVE."
 ;; Stephen's weekly time tracker
 ;;;;
 
-(defun iso-week-to-time (year week day)
-"Convert iso week to time."
+(defun ii/iso-week-to-time (year week day)
+"Convert iso YEAR WEEK DAY to include time."
   (pcase-let ((`(,m ,d ,y)
                (calendar-gregorian-from-absolute
                 (calendar-iso-to-absolute (list week day year)))))
     (encode-time 0 0 0 d m y)))
 
-(define-skeleton ii-timesheet-skel
+(define-skeleton ii/timesheet-skel
   "Prompt the week and year before generating ii timesheet for the user."
   ""
   (text-mode)
@@ -73,27 +72,27 @@ This function is INTERACTIVE."
   > "#+END" \n
   > " " \n
 
-  > "* " (format-time-string "%B %e, %Y" (iso-week-to-time (string-to-number v2) (string-to-number v1) 1)) \n
+  > "* " (format-time-string "%B %e, %Y" (ii/iso-week-to-time (string-to-number v2) (string-to-number v1) 1)) \n
   > "** Task X" \n
-  > "* " (format-time-string "%B %e, %Y" (iso-week-to-time (string-to-number v2) (string-to-number v1) 2)) \n
+  > "* " (format-time-string "%B %e, %Y" (ii/iso-week-to-time (string-to-number v2) (string-to-number v1) 2)) \n
   > "** Task X" \n
-  > "* " (format-time-string "%B %e, %Y" (iso-week-to-time (string-to-number v2) (string-to-number v1) 3)) \n
+  > "* " (format-time-string "%B %e, %Y" (ii/iso-week-to-time (string-to-number v2) (string-to-number v1) 3)) \n
   > "** Task X" \n
-  > "* " (format-time-string "%B %e, %Y" (iso-week-to-time (string-to-number v2) (string-to-number v1) 4)) \n
+  > "* " (format-time-string "%B %e, %Y" (ii/iso-week-to-time (string-to-number v2) (string-to-number v1) 4)) \n
   > "** Task X" \n
-  > "* " (format-time-string "%B %e, %Y" (iso-week-to-time (string-to-number v2) (string-to-number v1) 5)) \n
+  > "* " (format-time-string "%B %e, %Y" (ii/iso-week-to-time (string-to-number v2) (string-to-number v1) 5)) \n
   > "** Task X" \n
   > " " \n
   (org-mode)
   (save-buffer))
 
-(defun ii-timesheet ()
+(defun ii/timesheet ()
 "Create a timesheet buffer and insert skel as defined in ii-timesheet-skel.
 This function is INTERACTIVE."
   (interactive)
   (require 'cal-iso)
   (switch-to-buffer (get-buffer-create "*ii-timesheet*"))
-  (ii-timesheet-skel))
+  (ii/timesheet-skel))
 
 
 (provide 'ii-utils)
