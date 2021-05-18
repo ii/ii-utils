@@ -22,8 +22,7 @@
 ;;; Code:
 
 (defun ii/workdir+ (path)
-"To be run inside a git repo.
-Returns absolute path combining repo root and given PATH"
+"To be run inside a git repo: return absolute path combining repo root and given PATH."
   (let ((repo-root (s-trim-right (shell-command-to-string "git rev-parse --show-toplevel"))))
   (concat repo-root"/"path)))
 
