@@ -60,7 +60,7 @@ This function is INTERACTIVE."
   ""
   (text-mode)
   > "#+TITLE: Timesheet: Week " (setq v1 (skeleton-read "Timesheet Week? "))
-  ", " (setq v2 "2020")
+  ", " (setq v2 (format-time-string "%Y"))
   " (" (getenv "USER") ")" \n
   > "#+AUTHOR: " (getenv "USER") \n
   > " " \n
@@ -68,7 +68,7 @@ This function is INTERACTIVE."
   > " " \n
   > "* Week Summary" \n
   > " " _ \n
-  > "#+BEGIN: clocktable :scope file :block thisweek :maxlevel 2 :emphasise t :tags t :formula %" \n
+  > "#+BEGIN: clocktable :scope file :block " (v2) "-W" (v1) " :maxlevel 2 :emphasise t :tags t :formula %" \n
   > "#+END" \n
   > " " \n
 
