@@ -68,7 +68,7 @@ This function is INTERACTIVE."
   > " " \n
   > "* Week Summary" \n
   > " " _ \n
-  > "#+BEGIN: clocktable :scope file :block " (v2) "-W" (v1) " :maxlevel 2 :emphasise t :tags t :formula %" \n
+  > "#+BEGIN: clocktable :scope file :block " (message v2) "-W" (message v1) " :maxlevel 2 :emphasise t :tags t :formula %" \n
   > "#+END" \n
   > " " \n
 
