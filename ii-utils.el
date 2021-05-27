@@ -40,8 +40,9 @@ For more info, see: https://www.ssh.com/ssh/agent
 
 This function is INTERACTIVE."
   (interactive)
-  (setenv "SSH_AUTH_SOCK" (shell-command-to-string "find /tmp /run/host/tmp/
-  -type s -regex '.*/ssh-.*/agent..*$' 2> /dev/null | tail -n 1 | tr -d '\n'"))
+  (setenv "SSH_AUTH_SOCK" (shell-command-to-string "find /tmp /run/host/tmp/ \
+        -type s -regex '.*/ssh-.*/agent..*$' -printf '%T@ %p\n' 2> /dev/null \
+        | sort --numeric-sort --reverse | tail -n 1 | awk '{print $2}' | tr -d '\n'"))
   (message (getenv "SSH_AUTH_SOCK")))
 
 ;;;;
